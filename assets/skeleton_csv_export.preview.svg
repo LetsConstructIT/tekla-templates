@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="378" height="131" viewBox="0 0 378 131" font-family="Consolas, monospace">
+  <rect x="0" y="0" width="100%" height="100%" fill="#ffffff"/>
+  <text x="16" y="20" font-size="13" font-weight="bold" fill="#222" font-family="Segoe UI, Arial, sans-serif">skeleton_csv_export  [TEXTUAL]</text>
+  <text x="16" y="35" font-size="10" fill="#777" font-family="Segoe UI, Arial, sans-serif">Layout approximation — 3 sample row(s), width=46 chars</text>
+  <line x1="347.2" y1="34" x2="347.2" y2="121" stroke="#e0c0c0" stroke-width="0.5" stroke-dasharray="2,3"/>
+  <text x="16" y="46" font-size="12" fill="#aaaaaa" xml:space="preserve">0         10        20        30        40        </text>
+  <text x="16" y="61" font-size="12" fill="#111111" xml:space="preserve">sep=;</text>
+  <text x="16" y="76" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="91" font-size="12" fill="#111111" xml:space="preserve">Pos     ;Profile         ;Material;Weight</text>
+  <text x="16" y="106" font-size="12" fill="#111111" xml:space="preserve">B01     ;D16             ;B500B   ;9.8</text>
+</svg>

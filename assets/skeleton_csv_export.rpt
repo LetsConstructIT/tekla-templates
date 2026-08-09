@@ -1,0 +1,347 @@
+
+template
+{
+    name = "skeleton_csv_export";
+    type = TEXTUAL;
+    width = 46;
+    maxheight = 120;
+    columns = (1, 1);
+    gap = 1;
+    fillpolicy = EVEN;
+    filldirection = HORIZONTAL;
+    fillstartfrom = TOPLEFT;
+    margins = (0, 0, 0, 0);
+    gridxspacing = 1;
+    gridyspacing = 1;
+    version = 5.2;
+    created = "01.01.2025 00:00";
+    modified = "01.01.2025 00:00";
+    notes = "CSV export: sep=; line first, literal ; text between LEFT DISTINCT fields, *.csv.rpt name. See recipes.md.";
+
+    header
+    {
+        name = "HEADER";
+        height = 3;
+
+        text
+        {
+            name = "sepline";
+            x1 = 0;
+            y1 = 2;
+            x2 = 0;
+            y2 = 2;
+            string = "sep=;";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+            isalwaysvisible = TRUE;
+            visibilityrule = "";
+        };
+
+        text
+        {
+            name = "h_pos";
+            x1 = 0;
+            y1 = 0;
+            x2 = 0;
+            y2 = 0;
+            string = "Pos";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "h_sep1";
+            x1 = 8;
+            y1 = 0;
+            x2 = 8;
+            y2 = 0;
+            string = ";";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "h_prof";
+            x1 = 9;
+            y1 = 0;
+            x2 = 9;
+            y2 = 0;
+            string = "Profile";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "h_sep2";
+            x1 = 25;
+            y1 = 0;
+            x2 = 25;
+            y2 = 0;
+            string = ";";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "h_mat";
+            x1 = 26;
+            y1 = 0;
+            x2 = 26;
+            y2 = 0;
+            string = "Material";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "h_sep3";
+            x1 = 34;
+            y1 = 0;
+            x2 = 34;
+            y2 = 0;
+            string = ";";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "h_wt";
+            x1 = 35;
+            y1 = 0;
+            x2 = 35;
+            y2 = 0;
+            string = "Weight";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+    };
+
+    row _tmp_0
+    {
+        name = "PART";
+        height = 1;
+        visibility = TRUE;
+        usecolumns = FALSE;
+        rule = "";
+        contenttype = "PART";
+        sorttype = DISTINCT;
+
+        valuefield
+        {
+            name = "POS";
+            location = (0, 0);
+            formula = "GetValue(\"PART_POS\")";
+            datatype = STRING;
+            class = "";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 8;
+            sortdirection = ASCENDING;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+        text
+        {
+            name = "sep1";
+            x1 = 8;
+            y1 = 0;
+            x2 = 8;
+            y2 = 0;
+            string = ";";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+
+        valuefield
+        {
+            name = "PROFILE";
+            location = (9, 0);
+            formula = "GetValue(\"PROFILE\")";
+            datatype = STRING;
+            class = "";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 16;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+        text
+        {
+            name = "sep2";
+            x1 = 25;
+            y1 = 0;
+            x2 = 25;
+            y2 = 0;
+            string = ";";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+
+        valuefield
+        {
+            name = "MATERIAL";
+            location = (26, 0);
+            formula = "GetValue(\"MATERIAL\")";
+            datatype = STRING;
+            class = "";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 8;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+        text
+        {
+            name = "sep3";
+            x1 = 34;
+            y1 = 0;
+            x2 = 34;
+            y2 = 0;
+            string = ";";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+
+        valuefield
+        {
+            name = "WEIGHT";
+            location = (35, 0);
+            formula = "GetValue(\"WEIGHT\")";
+            datatype = DOUBLE;
+            class = "Weight";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 10;
+            decimals = 1;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+    };
+};

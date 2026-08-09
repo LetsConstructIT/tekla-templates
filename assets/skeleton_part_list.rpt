@@ -1,0 +1,367 @@
+
+template
+{
+    name = "skeleton_part_list";
+    type = TEXTUAL;
+    width = 78;
+    maxheight = 120;
+    columns = (1, 1);
+    gap = 1;
+    fillpolicy = EVEN;
+    filldirection = HORIZONTAL;
+    fillstartfrom = TOPLEFT;
+    margins = (4, 0, 0, 0);
+    gridxspacing = 1;
+    gridyspacing = 1;
+    version = 3.21;
+    created = "01.01.2025 00:00";
+    modified = "01.01.2025 00:00";
+    notes = "Minimal part list skeleton. Copy and extend. Columns: Pos | Profile | Material | Length | Qty | Weight.";
+
+    pageheader
+    {
+        name = "PAGEHEADER";
+        height = 3;
+        outputpolicy = NONE;
+
+        valuefield
+        {
+            name = "title";
+            location = (0, 2);
+            formula = "GetValue(\"TranslatedText(\"albl_Part_list\")\")";
+            datatype = STRING;
+            class = "";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 40;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+        };
+
+        text
+        {
+            name = "hdr_pos";
+            x1 = 0;
+            y1 = 0;
+            x2 = 0;
+            y2 = 0;
+            string = "Pos";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_profile";
+            x1 = 10;
+            y1 = 0;
+            x2 = 10;
+            y2 = 0;
+            string = "Profile";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_material";
+            x1 = 28;
+            y1 = 0;
+            x2 = 28;
+            y2 = 0;
+            string = "Material";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_length";
+            x1 = 44;
+            y1 = 0;
+            x2 = 44;
+            y2 = 0;
+            string = "Length";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = RIGHT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_qty";
+            x1 = 55;
+            y1 = 0;
+            x2 = 55;
+            y2 = 0;
+            string = "Qty";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = RIGHT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_weight";
+            x1 = 66;
+            y1 = 0;
+            x2 = 66;
+            y2 = 0;
+            string = "Weight";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = RIGHT;
+            pen = 0;
+        };
+    };
+
+    row _tmp_0
+    {
+        name = "PART";
+        height = 1;
+        visibility = TRUE;
+        usecolumns = TRUE;
+        rule = "";
+        contenttype = "PART";
+        sorttype = COMBINE;
+
+        valuefield
+        {
+            name = "PART_POS";
+            location = (0, 0);
+            formula = "GetValue(\"PART_POS\")";
+            datatype = STRING;
+            class = "";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 9;
+            sortdirection = ASCENDING;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+        valuefield
+        {
+            name = "PROFILE";
+            location = (10, 0);
+            formula = "GetValue(\"PROFILE\")";
+            datatype = STRING;
+            class = "";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 17;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+        valuefield
+        {
+            name = "MATERIAL";
+            location = (28, 0);
+            formula = "GetValue(\"MATERIAL\")";
+            datatype = STRING;
+            class = "";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 15;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+        valuefield
+        {
+            name = "LENGTH";
+            location = (44, 0);
+            formula = "GetValue(\"LENGTH\")";
+            datatype = DOUBLE;
+            class = "";
+            cacheable = TRUE;
+            justify = RIGHT;
+            visibility = TRUE;
+            angle = 0;
+            length = 10;
+            decimals = 0;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+        valuefield
+        {
+            name = "QTY";
+            location = (55, 0);
+            formula = "GetValue(\"NUMBER\")";
+            datatype = INTEGER;
+            class = "";
+            cacheable = TRUE;
+            justify = RIGHT;
+            visibility = TRUE;
+            angle = 0;
+            length = 10;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = SUM;
+        };
+        valuefield
+        {
+            name = "WEIGHT";
+            location = (66, 0);
+            formula = "GetValue(\"WEIGHT\")";
+            datatype = DOUBLE;
+            class = "";
+            cacheable = TRUE;
+            justify = RIGHT;
+            visibility = TRUE;
+            angle = 0;
+            length = 10;
+            decimals = 1;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = SUM;
+        };
+    };
+
+    footer
+    {
+        name = "FOOTER";
+        height = 3;
+
+        text
+        {
+            name = "total_label";
+            x1 = 44;
+            y1 = 1;
+            x2 = 44;
+            y2 = 1;
+            string = "Total weight:";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = RIGHT;
+            pen = 0;
+        };
+        valuefield
+        {
+            name = "TOTAL_WEIGHT";
+            location = (66, 1);
+            formula = "Total(\"WEIGHT\")";
+            datatype = DOUBLE;
+            class = "";
+            cacheable = TRUE;
+            justify = RIGHT;
+            visibility = TRUE;
+            angle = 0;
+            length = 10;
+            decimals = 1;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+    };
+};

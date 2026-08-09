@@ -1,0 +1,434 @@
+
+template
+{
+    name = "skeleton_bolt_list";
+    type = TEXTUAL;
+    width = 79;
+    maxheight = 120;
+    columns = (1, 1);
+    gap = 1;
+    fillpolicy = EVEN;
+    filldirection = HORIZONTAL;
+    fillstartfrom = TOPLEFT;
+    margins = (4, 0, 0, 0);
+    gridxspacing = 1;
+    gridyspacing = 1;
+    version = 3.21;
+    created = "01.01.2025 00:00";
+    modified = "01.01.2025 00:00";
+    notes = "Bolt list: BOLT rows in hidden ASSEMBLY/PART scope; built BOLT dXl size field; COMBINE+SUM counts; footer Total().";
+
+    pageheader
+    {
+        name = "PAGEHEADER";
+        height = 3;
+        outputpolicy = NONE;
+
+        valuefield
+        {
+            name = "title";
+            location = (0, 2);
+            formula = "GetValue(\"TranslatedText(\"albl_Bolt_list\")\")";
+            datatype = STRING;
+            class = "";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 40;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+        };
+
+        text
+        {
+            name = "hdr_std";
+            x1 = 0;
+            y1 = 0;
+            x2 = 0;
+            y2 = 0;
+            string = "Standard";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_site";
+            x1 = 16;
+            y1 = 0;
+            x2 = 16;
+            y2 = 0;
+            string = "Site/Shop";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_size";
+            x1 = 27;
+            y1 = 0;
+            x2 = 27;
+            y2 = 0;
+            string = "Bolt";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_asm";
+            x1 = 48;
+            y1 = 0;
+            x2 = 48;
+            y2 = 0;
+            string = "Assembly";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_part";
+            x1 = 60;
+            y1 = 0;
+            x2 = 60;
+            y2 = 0;
+            string = "Part";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        text
+        {
+            name = "hdr_qty";
+            x1 = 72;
+            y1 = 0;
+            x2 = 72;
+            y2 = 0;
+            string = "Qty";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = RIGHT;
+            pen = 0;
+        };
+    };
+
+    row _tmp_asm
+    {
+        name = "ASSEMBLY(hidden)";
+        height = 1;
+        visibility = FALSE;
+        usecolumns = FALSE;
+        rule = "";
+        contenttype = "ASSEMBLY";
+        sorttype = COMBINE;
+
+        row _tmp_part
+        {
+            name = "PART(hidden)";
+            height = 1;
+            visibility = FALSE;
+            usecolumns = FALSE;
+            rule = "";
+            contenttype = "PART";
+            sorttype = COMBINE;
+
+            row _tmp_bolt
+            {
+                name = "BOLT";
+                height = 1;
+                visibility = TRUE;
+                usecolumns = FALSE;
+                rule = "";
+                contenttype = "BOLT";
+                sorttype = COMBINE;
+
+                valuefield
+                {
+                    name = "DIAMETER_sort";
+                    location = (77, 0);
+                    formula = "GetValue(\"DIAMETER\")";
+                    datatype = STRING;
+                    class = "";
+                    cacheable = TRUE;
+                    justify = LEFT;
+                    visibility = FALSE;
+                    angle = 0;
+                    length = 1;
+                    sortdirection = DESCENDING;
+                    fontname = "Courier New";
+                    fontcolor = 153;
+                    fonttype = 2;
+                    fontsize = 0.8;
+                    fontratio = 0.75;
+                    fontstyle = 0;
+                    fontslant = 0;
+                    pen = 0;
+                    oncombine = NONE;
+                };
+                valuefield
+                {
+                    name = "LENGTH_sort";
+                    location = (78, 0);
+                    formula = "GetValue(\"LENGTH\")";
+                    datatype = STRING;
+                    class = "";
+                    cacheable = TRUE;
+                    justify = LEFT;
+                    visibility = FALSE;
+                    angle = 0;
+                    length = 1;
+                    sortdirection = DESCENDING;
+                    fontname = "Courier New";
+                    fontcolor = 153;
+                    fonttype = 2;
+                    fontsize = 0.8;
+                    fontratio = 0.75;
+                    fontstyle = 0;
+                    fontslant = 0;
+                    pen = 0;
+                    oncombine = NONE;
+                };
+                valuefield
+                {
+                    name = "STANDARD";
+                    location = (0, 0);
+                    formula = "GetValue(\"BOLT_STANDARD\")";
+                    datatype = STRING;
+                    class = "";
+                    cacheable = TRUE;
+                    justify = LEFT;
+                    visibility = TRUE;
+                    angle = 0;
+                    length = 14;
+                    sortdirection = DESCENDING;
+                    fontname = "Courier New";
+                    fontcolor = 153;
+                    fonttype = 2;
+                    fontsize = 0.8;
+                    fontratio = 0.75;
+                    fontstyle = 0;
+                    fontslant = 0;
+                    pen = 0;
+                    oncombine = NONE;
+                };
+                valuefield
+                {
+                    name = "SITE_SHOP";
+                    location = (16, 0);
+                    formula = "GetValue(\"SITE_WORKSHOP\")";
+                    datatype = STRING;
+                    class = "";
+                    cacheable = TRUE;
+                    justify = LEFT;
+                    visibility = TRUE;
+                    angle = 0;
+                    length = 8;
+                    sortdirection = NONE;
+                    fontname = "Courier New";
+                    fontcolor = 153;
+                    fonttype = 2;
+                    fontsize = 0.8;
+                    fontratio = 0.75;
+                    fontstyle = 0;
+                    fontslant = 0;
+                    pen = 0;
+                    oncombine = NONE;
+                };
+                valuefield
+                {
+                    name = "BOLT_SIZE";
+                    location = (26, 0);
+                    formula = "\"BOLT \"+int(GetValue(\"DIAMETER\"))+\"X\"+int(GetValue(\"LENGTH\"))";
+                    datatype = STRING;
+                    class = "";
+                    cacheable = TRUE;
+                    justify = LEFT;
+                    visibility = TRUE;
+                    angle = 0;
+                    length = 20;
+                    sortdirection = NONE;
+                    fontname = "Courier New";
+                    fontcolor = 153;
+                    fonttype = 2;
+                    fontsize = 0.8;
+                    fontratio = 0.75;
+                    fontstyle = 0;
+                    fontslant = 0;
+                    pen = 0;
+                    oncombine = NONE;
+                };
+                valuefield
+                {
+                    name = "BOLT_COUNT";
+                    location = (72, 0);
+                    formula = "GetValue(\"NUMBER\")";
+                    datatype = INTEGER;
+                    class = "";
+                    cacheable = TRUE;
+                    justify = RIGHT;
+                    visibility = TRUE;
+                    angle = 0;
+                    length = 6;
+                    sortdirection = NONE;
+                    fontname = "Courier New";
+                    fontcolor = 153;
+                    fonttype = 2;
+                    fontsize = 0.8;
+                    fontratio = 0.75;
+                    fontstyle = 0;
+                    fontslant = 0;
+                    pen = 0;
+                    oncombine = SUM;
+                };
+            };
+
+            valuefield
+            {
+                name = "PART_POS";
+                location = (60, 0);
+                formula = "GetValue(\"PART_POS\")";
+                datatype = STRING;
+                class = "";
+                cacheable = TRUE;
+                justify = LEFT;
+                visibility = TRUE;
+                angle = 0;
+                length = 10;
+                sortdirection = NONE;
+                fontname = "Courier New";
+                fontcolor = 153;
+                fonttype = 2;
+                fontsize = 0.8;
+                fontratio = 0.75;
+                fontstyle = 0;
+                fontslant = 0;
+                pen = 0;
+                oncombine = NONE;
+            };
+        };
+
+        valuefield
+        {
+            name = "ASSEMBLY_POS";
+            location = (48, 0);
+            formula = "GetValue(\"ASSEMBLY_POS\")";
+            datatype = STRING;
+            class = "";
+            cacheable = TRUE;
+            justify = LEFT;
+            visibility = TRUE;
+            angle = 0;
+            length = 10;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+    };
+
+    footer
+    {
+        name = "FOOTER";
+        height = 3;
+
+        text
+        {
+            name = "total_label";
+            x1 = 59;
+            y1 = 1;
+            x2 = 59;
+            y2 = 1;
+            string = "Total bolts:";
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontslant = 0;
+            fontstyle = 0;
+            angle = 0;
+            justify = LEFT;
+            pen = 0;
+        };
+        valuefield
+        {
+            name = "BOLT_TOTAL";
+            location = (72, 1);
+            formula = "Total(\"BOLT_COUNT\")";
+            datatype = INTEGER;
+            class = "";
+            cacheable = TRUE;
+            justify = RIGHT;
+            visibility = TRUE;
+            angle = 0;
+            length = 6;
+            sortdirection = NONE;
+            fontname = "Courier New";
+            fontcolor = 153;
+            fonttype = 2;
+            fontsize = 0.8;
+            fontratio = 0.75;
+            fontstyle = 0;
+            fontslant = 0;
+            pen = 0;
+            oncombine = NONE;
+        };
+    };
+};

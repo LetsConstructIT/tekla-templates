@@ -1,0 +1,14 @@
+# Derived from a local Tekla install — NOT redistributed.
+# Regenerate locally after cloning (see README "First-time setup"):
+#   scripts/Get-TeklaGrammar.ps1        -> assets/template-grammar.json
+#   scripts/Get-TeklaTemplateIndex.ps1  -> assets/template-index.json
+assets/template-grammar.json
+assets/template-index.json
+
+# Local Claude Code project settings (machine-specific)
+.claude/settings.local.json
+
+# OS / editor cruft
+Thumbs.db
+Desktop.ini
+.DS_Store

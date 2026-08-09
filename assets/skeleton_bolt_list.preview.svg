@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="616" height="191" viewBox="0 0 616 191" font-family="Consolas, monospace">
+  <rect x="0" y="0" width="100%" height="100%" fill="#ffffff"/>
+  <text x="16" y="20" font-size="13" font-weight="bold" fill="#222" font-family="Segoe UI, Arial, sans-serif">skeleton_bolt_list  [TEXTUAL]</text>
+  <text x="16" y="35" font-size="10" fill="#777" font-family="Segoe UI, Arial, sans-serif">Layout approximation — 3 sample row(s), width=79 chars</text>
+  <line x1="584.8" y1="34" x2="584.8" y2="181" stroke="#e0c0c0" stroke-width="0.5" stroke-dasharray="2,3"/>
+  <text x="16" y="46" font-size="12" fill="#aaaaaa" xml:space="preserve">0         10        20        30        40        50        60        70        </text>
+  <text x="16" y="61" font-size="12" fill="#111111" xml:space="preserve">Bolt_list</text>
+  <text x="16" y="76" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="91" font-size="12" fill="#111111" xml:space="preserve">Standard        Site/Shop  Bolt                 Assembly    Part        Qty</text>
+  <text x="16" y="106" font-size="12" fill="#111111" xml:space="preserve">                                                B01                              (hidden: ASSEMBLY)</text>
+  <text x="16" y="121" font-size="12" fill="#111111" xml:space="preserve">                                                            B01                  (hidden: PART)</text>
+  <text x="16" y="136" font-size="12" fill="#111111" xml:space="preserve">Ab1             Ab1       16                                                 8-</text>
+  <text x="16" y="151" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="166" font-size="12" fill="#111111" xml:space="preserve">                                                           Total bolts:     12</text>
+</svg>
