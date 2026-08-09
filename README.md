@@ -51,9 +51,9 @@ scripts\New-TeklaTemplateSchema.ps1
 scripts\Get-TeklaTemplateIndex.ps1
 ```
 
-If you omit `-TeklaRoot`, the scripts auto-detect the newest installed version. Generating the
-grammar sweeps the whole shipped corpus and takes ~15 minutes; it only needs doing once per
-Tekla version. Until these files exist, the dependent features degrade gracefully — the scripts
+If you omit `-TeklaRoot`, the scripts auto-detect the newest installed version. Both sweep the
+whole shipped corpus (2,688 files / 128 MB): the grammar takes ~30 s and the index ~65 s, and
+they only need doing once per Tekla version. Until these files exist, the dependent features degrade gracefully — the scripts
 tell you exactly which one to run — and everything else works normally.
 
 ## Why those two files aren't in the repo

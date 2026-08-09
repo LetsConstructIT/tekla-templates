@@ -77,9 +77,8 @@ checks every block type, property key, and closed-enum value against
 templates — with nearest-match suggestions, and exits 2 on findings so it can gate
 delivery. Run it on every generated or edited template. A construct missing from the
 corpus reads as "verify", not "definitely wrong". Regenerate for another version with
-`scripts\Get-TeklaGrammar.ps1 -TeklaRoot C:\TeklaStructures\<version>` (slow ~15 min —
-once per Tekla version, not per template); `-GrammarFile <path>` points `-Strict` at a
-custom list.
+`scripts\Get-TeklaGrammar.ps1 -TeklaRoot C:\TeklaStructures\<version>` (~30 s — once per
+Tekla version, not per template); `-GrammarFile <path>` points `-Strict` at a custom list.
 
 **TplEd crash traps** — four things make Template Editor **crash silently on open** (stack
 overflow, exception `0xc0000409`, no dialog), and all are invisible to the parser here
@@ -199,7 +198,7 @@ formula functions, `GetValue` attributes, block types and named tricks — `nest
 `combine`, `oncombine-sum`, `footer-sum`, `hidden-rows`, `current-drawing`, `imperial-branch`,
 `control-flow`, `summary-band`, `single-rebar`, `revision-table`, `drawing-table`, `csv-export`).
 Axes AND together; matches rank simplest-first (`-Largest` reverses). `-Show`/`-Path` resolve the
-file's real location so you can open and copy it. Regenerate for another version (slow ~15 min,
+file's real location so you can open and copy it. Regenerate for another version (~65 s,
 once per version) with `scripts\Get-TeklaTemplateIndex.ps1 -TeklaRoot C:\TeklaStructures\<version>`;
 `-Path` folds a firm/project library into the index, `-IndexFile` points the finder at it.
 Never read `assets/template-index.json` directly — it is 1.6 MB on a single line and will flood

@@ -128,9 +128,9 @@ layout may be normalized).
 ## Version coupling and regeneration
 
 Census, schema, and validator must describe the same Tekla version. After
-`Get-TeklaGrammar.ps1 -TeklaRoot C:\TeklaStructures\<version>` (~15 min, once per
+`Get-TeklaGrammar.ps1 -TeklaRoot C:\TeklaStructures\<version>` (~30 s, once per
 version), immediately rerun `New-TeklaTemplateSchema.ps1` (instant). The round-trip proof
-(`tests\Test-TeklaTemplateRoundTrip.ps1`; ~1 h over the full corpus with `-SchemaAll`, point
+(`tests\Test-TeklaTemplateRoundTrip.ps1`; ~9 min over the full corpus, longer with `-SchemaAll`, point
 `-Path` at a subtree for a quick pass) is the regression suite for any change to the
 parser, IR library, census, or schema generator — run it after touching any of them; it
 must report zero `mismatch`/`lint`/`schema` findings (`parse-fail` covers the handful of

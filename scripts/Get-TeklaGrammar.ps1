@@ -123,36 +123,54 @@ function Get-KindSig {
     return [string]$K
 }
 
+# Runs ~4.3M times (240k blocks x ~18 props), so it is written for the interpreter:
+# every avoidable PowerShell function call, double dictionary lookup and regex in
+# the inner loop shows up directly in the wall clock. Behaviour is unchanged —
+# the byte-identical `blocks` payload is the gate.
+$script:IdentValueRx = [regex]::new('^[A-Za-z_][A-Za-z0-9_]*$', 'Compiled')
+
 function Record-Block {
     param($Node)
     $kw = $Node.Keyword
-    if (-not $blocks.ContainsKey($kw)) {
-        $blocks[$kw] = @{ Count = 0; Props = @{}; Children = @{} }
-    }
     $b = $blocks[$kw]
+    if ($null -eq $b) {
+        $b = @{ Count = 0; Props = @{}; Children = @{} }
+        $blocks[$kw] = $b
+    }
     $b.Count++
-    foreach ($k in $Node.Props.Keys) {
-        if (-not $b.Props.ContainsKey($k)) {
-            $b.Props[$k] = @{ Count = 0; Values = (New-Object 'System.Collections.Generic.HashSet[string]'); Kinds = @{} }
+
+    $nProps = $Node.Props          # hoisted: these are field lookups on the parse node
+    $nKinds = $Node.PropKinds
+    $bProps = $b.Props
+    foreach ($k in $nProps.Keys) {
+        $p = $bProps[$k]
+        if ($null -eq $p) {
+            $p = @{ Count = 0; Values = (New-Object 'System.Collections.Generic.HashSet[string]'); Kinds = @{} }
+            $bProps[$k] = $p
         }
-        $p = $b.Props[$k]
         $p.Count++
         # census of source token kinds — how this prop is WRITTEN in shipped files
-        # (bare enum keyword vs quoted string vs number vs tuple shape)
-        $sig = Get-KindSig $Node.PropKinds[$k]
-        if (-not $p.Kinds.ContainsKey($sig)) { $p.Kinds[$sig] = 0 }
-        $p.Kinds[$sig]++
+        # (bare enum keyword vs quoted string vs number vs tuple shape).
+        # Scalars are their own signature; only a tuple needs the recursive helper.
+        $kind = $nKinds[$k]
+        $sig = if ($kind -is [array]) { Get-KindSig $kind } else { [string]$kind }
+        $pKinds = $p.Kinds
+        $pKinds[$sig] = 1 + $pKinds[$sig]        # missing key reads as $null; 1 + $null = 1
         # only a BARE identifier token is an enum keyword (LEFT / CENTERED / TRUE ...);
         # a quoted string that merely looks like one (contenttype = "PART") is content,
         # not grammar vocabulary, and is excluded now that the parser reports kinds.
-        $v = $Node.Props[$k]
-        if ($sig -eq 'ident' -and $v -is [string] -and $v -match '^[A-Za-z_][A-Za-z0-9_]*$') {
-            [void]$p.Values.Add($v)
+        if ($sig -eq 'ident') {
+            $v = $nProps[$k]
+            if ($v -is [string] -and $script:IdentValueRx.IsMatch($v)) {
+                [void]$p.Values.Add($v)
+            }
         }
     }
+
+    $bChildren = $b.Children
     foreach ($c in $Node.Children) {
-        if (-not $b.Children.ContainsKey($c.Keyword)) { $b.Children[$c.Keyword] = 0 }
-        $b.Children[$c.Keyword]++
+        $ck = $c.Keyword
+        $bChildren[$ck] = 1 + $bChildren[$ck]
     }
 }
 
