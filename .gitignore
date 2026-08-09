@@ -1,7 +1,7 @@
 # Derived from a local Tekla install — NOT redistributed.
-# Regenerate locally after cloning (see README "First-time setup"):
-#   scripts/Get-TeklaGrammar.ps1        -> assets/template-grammar.json
-#   scripts/Get-TeklaTemplateIndex.ps1  -> assets/template-index.json
+# Generated locally after cloning: ask Claude to "prepare tekla-templates to work",
+# or run scripts/Initialize-TeklaTemplates.ps1 (see README "First-time setup").
+#   -> assets/template-grammar.json, assets/template-index.json
 assets/template-grammar.json
 assets/template-index.json
 

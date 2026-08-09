@@ -38,6 +38,13 @@ git clone https://github.com/LetsConstructIT/tekla-templates.git "$HOME\.claude\
 
 Restart Claude Code (or start a new session) and the `tekla-templates` skill is available.
 
+Then ask Claude, in the chat:
+
+> Prepare tekla-templates to work
+
+That runs the one-time setup below for you (~2 minutes) and reports which Tekla version it
+built against. Nothing else to do.
+
 ## Use with other agents
 
 Very little here is Claude Code-specific. `SKILL.md` and everything in `references/` is plain
@@ -56,24 +63,30 @@ wrong place.
 ## First-time setup (one-time, per Tekla version)
 
 Two data assets are **derived from your local Tekla install and are not shipped in this
-repo** — regenerate them once against the Tekla version you use. Run from the skill folder:
+repo**, so they're built once on your machine. Easiest route is to ask Claude —
+*"prepare tekla-templates to work"* — which runs exactly the script below.
+
+To do it yourself, from the skill folder:
 
 ```powershell
-# 1. Grammar allow-list  -> assets/template-grammar.json   (used by -Strict validation)
-scripts\Get-TeklaGrammar.ps1            # add -TeklaRoot C:\TeklaStructures\<version> to pin a version
-
-# 2. JSON schema         -> assets/template-schema.json    (pure function of the grammar; already
-#                                                            shipped, regenerate only if you rebuild grammar)
-scripts\New-TeklaTemplateSchema.ps1
-
-# 3. Corpus index        -> assets/template-index.json     (used by Find-TeklaTemplateExamples.ps1)
-scripts\Get-TeklaTemplateIndex.ps1
+scripts\Initialize-TeklaTemplates.ps1           # builds whatever is missing
+scripts\Initialize-TeklaTemplates.ps1 -Check    # status only (exit 0 = ready, 1 = setup needed)
+scripts\Initialize-TeklaTemplates.ps1 -Force    # rebuild, e.g. after upgrading Tekla
 ```
 
-If you omit `-TeklaRoot`, the scripts auto-detect the newest installed version. Both sweep the
-whole shipped corpus (2,688 files / 128 MB): the grammar takes ~30 s and the index ~65 s, and
-they only need doing once per Tekla version. Until these files exist, the dependent features degrade gracefully — the scripts
-tell you exactly which one to run — and everything else works normally.
+It auto-detects the newest installed version; `-TeklaRoot C:\TeklaStructures\<version>` pins
+one, and `-Path <folder>` folds in a firm/project library (or stands in for a missing local
+install). Re-running is safe — assets that are already current are skipped.
+
+| Built | File | Used by |
+|---|---|---|
+| Grammar allow-list | `assets/template-grammar.json` | `-Strict` validation |
+| JSON schema | `assets/template-schema.json` | JSON-IR schema gate (pure function of the grammar) |
+| Corpus index | `assets/template-index.json` | `Find-TeklaTemplateExamples.ps1` |
+
+The grammar and index each sweep the whole shipped corpus (2,688 files / 128 MB) — ~30 s and
+~65 s, once per Tekla version. Until they exist the dependent features degrade gracefully —
+each script tells you which one to run — and everything else works normally.
 
 ## Why those two files aren't in the repo
 

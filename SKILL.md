@@ -12,9 +12,13 @@ description: >-
   a column, wiring up a formula, filtering which objects appear, or diagnosing a
   blank/truncated/garbled field. Trigger even when the user says "report",
   "list", "table", "title block", or "template" in a Tekla context without
-  naming a file extension. This covers editing the template TEXT directly; for
-  C#/Open API automation of the model or drawings, use the tekla-open-api skill
-  instead.
+  naming a file extension. Also use for this skill's own first-run setup —
+  "prepare/set up/initialise tekla-templates", "finish installing the Tekla
+  templates skill", "is the Tekla skill ready", or any script reporting a
+  missing template-grammar.json / template-index.json: run
+  scripts\Initialize-TeklaTemplates.ps1. This covers editing the template TEXT
+  directly; for C#/Open API automation of the model or drawings, use the
+  tekla-open-api skill instead.
 ---
 
 # Tekla templates
@@ -34,12 +38,30 @@ containing this SKILL.md), not your working directory. Your CWD is usually the u
 project, so prefix every invocation with the skill directory, e.g.
 `& "<skill-dir>\scripts\Get-TeklaAttributes.ps1" …`.
 
-**First run after a fresh clone:** two data assets are generated locally rather than shipped
-— `assets\template-grammar.json` (loaded by `-Strict`) and `assets\template-index.json`
-(loaded by `Find-TeklaTemplateExamples.ps1`). If a script reports one is missing, build it
-once against the local Tekla install: `scripts\Get-TeklaGrammar.ps1`, then
-`scripts\New-TeklaTemplateSchema.ps1`, then `scripts\Get-TeklaTemplateIndex.ps1` (see
-README). Everything else works without them.
+## First-run setup — run it for the user, don't hand them commands
+
+Two data assets are generated from the local Tekla install rather than shipped:
+`assets\template-grammar.json` (loaded by `-Strict`) and `assets\template-index.json`
+(loaded by `Find-TeklaTemplateExamples.ps1`); `assets\template-schema.json` is derived from
+the grammar. One script builds whatever is missing — **just run it yourself** when the user
+asks to prepare/set up/initialise the skill, or when any script reports a missing asset:
+
+```powershell
+scripts\Initialize-TeklaTemplates.ps1          # build what's missing (~2 min, once per Tekla version)
+scripts\Initialize-TeklaTemplates.ps1 -Check   # status only; exit 0 = ready, 1 = setup needed
+scripts\Initialize-TeklaTemplates.ps1 -Force   # rebuild after a Tekla upgrade
+```
+
+Safe to re-run — present-and-current assets are skipped. It auto-detects the newest install
+(`C:\TeklaStructures\<version>`, then Program Files); `-TeklaRoot` pins a version and `-Path`
+folds in a firm library or substitutes for a missing install. Tell the user which Tekla
+version it built against. If it reports assets built from a **different** version than the
+one installed, say so and offer `-Force` — it won't refresh them on its own.
+
+Setup is not a precondition for working: authoring, preview, and install all work without
+these files. Only `-Strict` grammar validation, the JSON-IR schema gate, and shipped-corpus
+search degrade — so when setup can't complete (no Tekla on this PC), carry on and say which
+checks are unavailable.
 
 ## Attributes and grammar words are not guessable — validate
 
