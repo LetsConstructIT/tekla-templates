@@ -10,9 +10,13 @@ deterministic emitter, grammar/attribute validation (`-Strict`), an SVG preview 
 searchable index of the shipped template corpus, and install helpers. The Template Editor GUI
 is not required.
 
+> Not affiliated with or endorsed by Trimble. Tekla and Tekla Structures are trademarks of
+> Trimble Inc.
+
 ## Requirements
 
-- **Claude Code**
+- **Claude Code** — the primary target, and what the install steps below assume. Other
+  coding agents work too; see [Use with other agents](#use-with-other-agents).
 - **Windows + PowerShell** (the `scripts/*.ps1` are PowerShell)
 - **Tekla Structures** installed — needed only to (re)generate the local data assets and to
   install templates into an environment; template authoring/editing itself does not need it.
@@ -23,16 +27,31 @@ Clone into your Claude Code skills directory so the folder lands at
 `~/.claude/skills/tekla-templates`:
 
 ```bash
-git clone https://github.com/<you>/tekla-templates.git ~/.claude/skills/tekla-templates
+git clone https://github.com/LetsConstructIT/tekla-templates.git ~/.claude/skills/tekla-templates
 ```
 
 On Windows PowerShell:
 
 ```powershell
-git clone https://github.com/<you>/tekla-templates.git "$HOME\.claude\skills\tekla-templates"
+git clone https://github.com/LetsConstructIT/tekla-templates.git "$HOME\.claude\skills\tekla-templates"
 ```
 
 Restart Claude Code (or start a new session) and the `tekla-templates` skill is available.
+
+## Use with other agents
+
+Very little here is Claude Code-specific. `SKILL.md` and everything in `references/` is plain
+markdown; `scripts/` is PowerShell invoked through a shell. Any agent that can read files in a
+folder and run shell commands can use this — clone the repo anywhere and point the agent at
+`SKILL.md` (paste it, add it to the agent's instruction/rules file, or let the agent open it).
+
+Only the discovery mechanics are Claude Code's: the `~/.claude/skills/<name>/` location, the
+`/tekla-templates` command, and automatic loading based on the YAML `description` in
+`SKILL.md`'s frontmatter. Elsewhere you supply that context yourself.
+
+One thing to carry over: every `scripts\…` path in `SKILL.md` is relative to the skill folder,
+not the working directory. Tell the agent where it cloned the repo, or it will look in the
+wrong place.
 
 ## First-time setup (one-time, per Tekla version)
 
