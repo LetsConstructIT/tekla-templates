@@ -2,23 +2,15 @@
 name: tekla-templates
 description: >-
   Author, generate, edit, and debug Tekla Structures Template Editor templates —
-  the .rpt files behind reports (part/assembly/bolt/material lists, bills of
-  material) and the .tpl files behind drawing tables (title blocks, revision
-  tables, drawing lists). Use this whenever the user is working with Tekla
-  templates, Template Editor / tpled, report templates, drawing title blocks or
-  revision tables, value fields, content attributes (PART.PROFILE,
-  ASSEMBLY.WEIGHT, GetValue formulas), row rules/filters, or COMBINE/DISTINCT
-  sorting — including creating a new report from a description, adding or fixing
-  a column, wiring up a formula, filtering which objects appear, or diagnosing a
-  blank/truncated/garbled field. Trigger even when the user says "report",
-  "list", "table", "title block", or "template" in a Tekla context without
-  naming a file extension. Also use for this skill's own first-run setup —
-  "prepare/set up/initialise tekla-templates", "finish installing the Tekla
-  templates skill", "is the Tekla skill ready", or any script reporting a
-  missing template-grammar.json / template-index.json: run
-  scripts\Initialize-TeklaTemplates.ps1. This covers editing the template TEXT
-  directly; for C#/Open API automation of the model or drawings, use the
-  tekla-open-api skill instead.
+  the .rpt files behind reports (part/assembly/bolt/material lists, BOMs) and the
+  .tpl files behind drawing tables (title blocks, revision tables, drawing
+  lists). Use for Template Editor / tpled, value fields, content attributes
+  (PART.PROFILE, ASSEMBLY.WEIGHT, GetValue formulas), row rules/filters,
+  COMBINE/DISTINCT sorting, creating a report from a description, adding or
+  fixing a column, or diagnosing a blank/truncated/garbled field. Trigger even
+  when the user just says "report", "list", "table", "title block", or
+  "template" in a Tekla context. Covers editing template TEXT; for C#/Open API
+  automation of the model or drawings use the tekla-open-api skill.
 ---
 
 # Tekla templates
@@ -38,13 +30,15 @@ containing this SKILL.md), not your working directory. Your CWD is usually the u
 project, so prefix every invocation with the skill directory, e.g.
 `& "<skill-dir>\scripts\Get-TeklaAttributes.ps1" …`.
 
-## First-run setup — run it for the user, don't hand them commands
+## Step 1 — first-run setup: run it for the user, don't hand them commands
 
-Two data assets are generated from the local Tekla install rather than shipped:
-`assets\template-grammar.json` (loaded by `-Strict`) and `assets\template-index.json`
-(loaded by `Find-TeklaTemplateExamples.ps1`); `assets\template-schema.json` is derived from
-the grammar. One script builds whatever is missing — **just run it yourself** when the user
-asks to prepare/set up/initialise the skill, or when any script reports a missing asset:
+**Do this before anything else in a session.** Two data assets are generated from the local
+Tekla install rather than shipped: `assets\template-grammar.json` (loaded by `-Strict`) and
+`assets\template-index.json` (loaded by `Find-TeklaTemplateExamples.ps1`);
+`assets\template-schema.json` is derived from the grammar. One script builds whatever is
+missing — **just run it yourself**, without asking, whenever the user asks to
+prepare/set up/initialise the skill or whether it's ready, or any script reports a missing
+asset:
 
 ```powershell
 scripts\Initialize-TeklaTemplates.ps1          # build what's missing (~2 min, once per Tekla version)
