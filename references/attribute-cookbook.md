@@ -15,9 +15,10 @@ Attribute *availability* varies by version and environment — this file orients
 scripts\Get-TeklaAttributes.ps1 -ContentType PART -Name '^WEIGHT'
 ```
 
-**For what an attribute *means*, grep `references/attribute-definitions.md`** when it exists.
-It's generated locally from Trimble's "Template attributes" PDF (see SKILL.md, Step 1) and is
-the authority on meaning; this cookbook is about choosing names and avoiding traps.
+**For what an attribute *means*, grep `references/attribute-glossary.md`** (300 most-used,
+always present), and `references/attribute-definitions.md` when it exists (Trimble's full text,
+generated locally from their PDF; see SKILL.md, Step 1). This cookbook is about choosing names
+and avoiding traps.
 
 Descriptions and gotchas below are hand-written, and have to be. Tekla's own `.ail` description
 file can't source them: of its 901 entries, **633 just restate the attribute name** — and that's
@@ -118,10 +119,16 @@ total a part list in the `footer` with `Total()`, as the skeletons do.
 
 **Three weights, all kg.** `WEIGHT`, `WEIGHT_NET` and `WEIGHT_GROSS` are distinct values — Tekla's
 own inquiry report prints all three on separate lines. `WEIGHT_GROSS` is the undeducted figure and
-`WEIGHT_NET` deducts cuts and holes; **which one bare `WEIGHT` equals is not documented in the
-install and differs by object type** — on rebar, shipped templates label `GetValue("WEIGHT")` as
-the gross column. If the distinction matters for a delivery ticket, verify against one known part
-in the actual model rather than trusting any of the three by name.
+`WEIGHT_NET` deducts cuts and holes. **Bare `WEIGHT` switches between them by profile kind**
+(Trimble's PDF, §21.8): a part whose profile has a catalog cross-section gets length × section ×
+density, the same as `WEIGHT_GROSS`; a parametric profile without one gets the net, cut-aware
+value. Assemblies sum their parts, so a mixed assembly mixes both. On rebar, shipped templates
+label `GetValue("WEIGHT")` as the gross column. For a delivery ticket, pick `WEIGHT_NET` or
+`WEIGHT_GROSS` explicitly rather than bare `WEIGHT`.
+
+**`VOLUME` calculates in mm³.** The catalog lists m³ and a plain formatted field shows m³, but
+inside arithmetic the raw value is mm³. Convert with `double(format(GetValue("VOLUME"), "Volume",
+"m3", 3))` before dividing or multiplying, or a density or price column is off by 10⁹.
 
 **Dates are INTEGER with `class = "Date"`.** `DATE`, `DATE_CREATE`, `DATE_ISSUE` are INTEGER in the
 catalog with unit `dd.mm.yyyy`; shipped title blocks declare `datatype = INTEGER; class = "Date";`

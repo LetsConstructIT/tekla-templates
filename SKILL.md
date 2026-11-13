@@ -90,11 +90,17 @@ datatype, unit, bindings) — it says nothing about what the value represents, a
 names, Inquire/report labels, or shipped usage. `WELD_ACTUAL_LENGTH1` sits under the label
 "Actual length" in Tekla's own weld inquiry report, yet it's the full seam length *including*
 the gaps of an intermittent weld. Before stating what an attribute means, or picking one on
-the strength of its meaning, grep `references\attribute-definitions.md` for the bare name
-(no `ASSEMBLY.`/`MAINPART.` prefix) and cite the § it came from. If the file is absent or the
-attribute isn't in it, say the meaning is **unverified — inferred from the name/label** and
-suggest checking one known object with Inquire in the model before the report is trusted.
-Never present an inferred meaning as fact.
+the strength of its meaning, look it up:
+
+1. `references\attribute-glossary.md` (always shipped) has our own descriptions of the 300
+   attributes the shipped templates use most, with traps. Grep the name as typed.
+2. `references\attribute-definitions.md` (built locally from Trimble's PDF, may be absent)
+   holds Trimble's full text. Grep the bare name (no `ASSEMBLY.`/`MAINPART.` prefix) and cite
+   the §. Where it is more specific than the glossary, it wins.
+
+If neither has it, or the entry is marked *(unverified)*, say the meaning is **unverified,
+inferred from the name/label**, and suggest checking one known object with Inquire in the
+model before the report is trusted. Never present an inferred meaning as fact.
 
 The extractor verifies a name but won't help you *choose* one. For "the user said **piece
 mark** / **grade** / **lot** — what do I type?", the traps that silently produce a wrong
@@ -346,6 +352,8 @@ template, so **verify one report in a live Tekla session** before rolling it out
   names an outcome rather than a language feature; each entry links the full treatment.
 - `references/attribute-cookbook.md` — plain-English → attribute ("piece mark" → `ASSEMBLY_POS`),
   per-content-type most-used lists, and the attribute traps. Read when choosing attributes.
+- `references/attribute-glossary.md` — what the 300 most-used attributes **mean**, in our own
+  words, with type/unit/content types and corpus usage. Grep it; ~10k tokens whole.
 - `references/attribute-definitions.md` — *generated locally, may be absent*: Trimble's
   definition of each documented attribute, one line each (~35k tokens). **Grep it, never read
   it whole.** The authority for what an attribute means.

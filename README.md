@@ -90,10 +90,10 @@ each script tells you which one to run — and everything else works normally.
 
 ### Optional (recommended): attribute definitions
 
-The steps above teach Claude which attribute **names** are valid, but not what they **mean**.
-Without definitions, Claude infers meanings from names and labels, and those can mislead.
-For example, `WELD_ACTUAL_LENGTH1` includes the gaps of an intermittent weld. To give Claude
-Trimble's definitions:
+The skill ships `references/attribute-glossary.md`, our own descriptions of the 300 most-used
+attributes. For the rest, Claude would infer meanings from names and labels, and those can
+mislead. For example, `WELD_ACTUAL_LENGTH1` includes the gaps of an intermittent weld. To give
+Claude Trimble's full definitions of every documented attribute:
 
 1. Download the *"Template attributes in drawing and report templates"* PDF for your Tekla
    version and language from Tekla User Assistance, e.g. `TS_TEA_2026_en_Template_attributes.pdf`.

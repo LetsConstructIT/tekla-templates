@@ -25,6 +25,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
     the skill folder / Downloads, preferring the installed Tekla year; optional, never
     affects readiness.
 - Weld rows and the intermittent-weld trap in `references/attribute-cookbook.md`.
+- `references/attribute-glossary.md`: hand-written meanings (in our own words) of the 300
+  attributes most used across the 2,685 shipped 2026.0 templates, with catalog type/unit,
+  content types and usage counts; meanings not confirmed by Trimble's PDF or a shipped label
+  are marked *(unverified)*. Shipped, so meanings work without the PDF.
 
 ### Changed
 - `SKILL.md`: description mentions Excel/CSV output; skeleton table separates CSV export
@@ -33,6 +37,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `SKILL.md`: "a valid name is not a known meaning" rule. Claude looks a meaning up in the
   definitions file and cites it, or labels it unverified. Previously it presented label-based
   guesses as fact (`WELD_ACTUAL_LENGTH1` read as "welded length without gaps").
+- Cookbook: the bare-`WEIGHT` trap now states the documented rule (gross for catalog
+  cross-sections, net for parametric profiles); new `VOLUME`-is-mm³-in-arithmetic trap.
 
 ## 2026-08-11
 ### Changed
