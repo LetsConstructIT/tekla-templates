@@ -1,0 +1,443 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="767" height="6617" viewBox="0 0 767 6617" font-family="Consolas, monospace">
+  <rect x="0" y="0" width="100%" height="100%" fill="#ffffff"/>
+  <text x="16" y="20" font-size="13" font-weight="bold" fill="#222" font-family="Segoe UI, Arial, sans-serif">skeleton_xls_report  [TEXTUAL]</text>
+  <text x="16" y="35" font-size="10" fill="#777" font-family="Segoe UI, Arial, sans-serif">Layout approximation — 3 sample row(s), width=100 chars</text>
+  <line x1="736" y1="34" x2="736" y2="6511" stroke="#e0c0c0" stroke-width="0.5" stroke-dasharray="2,3"/>
+  <text x="16" y="46" font-size="12" fill="#aaaaaa" xml:space="preserve">0         10        20        30        40        50        60        70        80        90        </text>
+  <text x="16" y="61" font-size="12" fill="#111111" xml:space="preserve">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2//EN&quot;&gt;</text>
+  <text x="16" y="76" font-size="12" fill="#111111" xml:space="preserve">&lt;HTML&gt;</text>
+  <text x="16" y="91" font-size="12" fill="#111111" xml:space="preserve">&lt;HEAD&gt;</text>
+  <text x="16" y="106" font-size="12" fill="#111111" xml:space="preserve">&lt;META NAME=&quot;Generator&quot; CONTENT=&quot;Tekla Structures&quot;&gt;</text>
+  <text x="16" y="121" font-size="12" fill="#111111" xml:space="preserve">&lt;TITLE&gt;Part list&lt;/TITLE&gt;</text>
+  <text x="16" y="136" font-size="12" fill="#111111" xml:space="preserve">&lt;style type=&quot;text/css&quot;&gt;</text>
+  <text x="16" y="151" font-size="12" fill="#111111" xml:space="preserve">&lt;!--</text>
+  <text x="16" y="166" font-size="12" fill="#111111" xml:space="preserve">@page</text>
+  <text x="16" y="181" font-size="12" fill="#111111" xml:space="preserve">{margin:0.79in 0.59in 0.79in 0.59in;</text>
+  <text x="16" y="196" font-size="12" fill="#111111" xml:space="preserve">mso-page-orientation:portrait;}</text>
+  <text x="16" y="211" font-size="12" fill="#111111" xml:space="preserve">.style0</text>
+  <text x="16" y="226" font-size="12" fill="#111111" xml:space="preserve">{mso-number-format:general;</text>
+  <text x="16" y="241" font-size="12" fill="#111111" xml:space="preserve">font-family:Arial, sans-serif;</text>
+  <text x="16" y="256" font-size="12" fill="#111111" xml:space="preserve">font-size:10.0pt;</text>
+  <text x="16" y="271" font-size="12" fill="#111111" xml:space="preserve">text-align:left;</text>
+  <text x="16" y="286" font-size="12" fill="#111111" xml:space="preserve">vertical-align:middle;</text>
+  <text x="16" y="301" font-size="12" fill="#111111" xml:space="preserve">white-space:nowrap;}</text>
+  <text x="16" y="316" font-size="12" fill="#111111" xml:space="preserve">td</text>
+  <text x="16" y="331" font-size="12" fill="#111111" xml:space="preserve">{mso-style-parent:style0;</text>
+  <text x="16" y="346" font-size="12" fill="#111111" xml:space="preserve">border:0.5pt solid windowtext;}</text>
+  <text x="16" y="361" font-size="12" fill="#111111" xml:space="preserve">.head</text>
+  <text x="16" y="376" font-size="12" fill="#111111" xml:space="preserve">{mso-style-parent:style0;</text>
+  <text x="16" y="391" font-size="12" fill="#111111" xml:space="preserve">font-weight:700;</text>
+  <text x="16" y="406" font-size="12" fill="#111111" xml:space="preserve">text-align:center;</text>
+  <text x="16" y="421" font-size="12" fill="#111111" xml:space="preserve">border:1.0pt solid windowtext;}</text>
+  <text x="16" y="436" font-size="12" fill="#111111" xml:space="preserve">.count</text>
+  <text x="16" y="451" font-size="12" fill="#111111" xml:space="preserve">{mso-style-parent:style0;</text>
+  <text x="16" y="466" font-size="12" fill="#111111" xml:space="preserve">font-weight:700;</text>
+  <text x="16" y="481" font-size="12" fill="#111111" xml:space="preserve">border:1.0pt solid windowtext;}</text>
+  <text x="16" y="496" font-size="12" fill="#111111" xml:space="preserve">.txt</text>
+  <text x="16" y="511" font-size="12" fill="#111111" xml:space="preserve">{mso-style-parent:style0;</text>
+  <text x="16" y="526" font-size="12" fill="#111111" xml:space="preserve">mso-number-format:&quot;\@&quot;;}</text>
+  <text x="16" y="541" font-size="12" fill="#111111" xml:space="preserve">--&gt;</text>
+  <text x="16" y="556" font-size="12" fill="#111111" xml:space="preserve">&lt;/style&gt;</text>
+  <text x="16" y="571" font-size="12" fill="#111111" xml:space="preserve">&lt;/HEAD&gt;</text>
+  <text x="16" y="586" font-size="12" fill="#111111" xml:space="preserve">&lt;BODY&gt;</text>
+  <text x="16" y="601" font-size="12" fill="#111111" xml:space="preserve">&lt;TABLE style=&quot;border-collapse:collapse&quot;&gt;</text>
+  <text x="16" y="616" font-size="12" fill="#111111" xml:space="preserve">&lt;TR&gt;&lt;TD class=head&gt;&amp;nbsp;Project&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="631" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=txt&gt;                                    Bar                           &amp;nbsp;&lt;/TD&gt;&lt;/TR&gt;</text>
+  <text x="16" y="646" font-size="12" fill="#111111" xml:space="preserve">&lt;TR&gt;&lt;TD class=head&gt;&amp;nbsp;Date&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="661" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=txt&gt;                                    01.02.26    &amp;nbsp;&lt;/TD&gt;&lt;/TR&gt;</text>
+  <text x="16" y="676" font-size="12" fill="#111111" xml:space="preserve">&lt;/TABLE&gt;</text>
+  <text x="16" y="691" font-size="12" fill="#111111" xml:space="preserve">&lt;BR&gt;</text>
+  <text x="16" y="706" font-size="12" fill="#111111" xml:space="preserve">&lt;TABLE style=&quot;border-collapse:collapse&quot;&gt;</text>
+  <text x="16" y="721" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="736" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="751" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="766" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="781" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="796" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="811" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="826" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="841" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="856" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="871" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="886" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="901" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="916" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="931" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="946" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="961" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="976" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="991" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1006" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1021" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1036" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1051" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1066" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1081" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1096" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1111" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1126" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1141" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1156" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1171" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1186" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1201" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1216" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1231" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1246" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1261" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1276" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1291" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1306" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1321" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1336" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1351" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1366" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1381" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1396" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1411" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1426" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1441" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1456" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1471" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1486" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1501" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1516" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1531" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1546" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1561" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1576" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1591" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1606" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1621" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1636" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1651" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1666" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1681" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1696" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1711" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1726" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1741" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1756" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1771" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1786" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1801" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1816" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1831" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1846" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1861" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1876" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1891" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1906" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1921" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1936" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1951" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1966" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1981" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="1996" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2011" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2026" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2041" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2056" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2071" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2086" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2101" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2116" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2131" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2146" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2161" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2176" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2191" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2206" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2221" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2236" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2251" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2266" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2281" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2296" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2311" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2326" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2341" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2356" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2371" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2386" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2401" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2416" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2431" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2446" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2461" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2476" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2491" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2506" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2521" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2536" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2551" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2566" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2581" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2596" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2611" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2626" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2641" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2656" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2671" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2686" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2701" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2716" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2731" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2746" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2761" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2776" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2791" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2806" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2821" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2836" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2851" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2866" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2881" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2896" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2911" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2926" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2941" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2956" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2971" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="2986" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3001" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3016" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3031" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3046" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3061" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3076" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3091" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3106" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3121" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3136" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3151" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3166" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3181" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3196" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3211" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3226" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3241" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3256" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3271" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3286" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3301" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3316" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3331" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3346" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3361" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3376" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3391" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3406" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3421" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3436" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3451" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3466" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3481" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3496" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3511" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3526" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3541" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3556" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3571" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3586" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3601" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3616" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3631" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3646" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3661" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3676" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3691" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3706" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3721" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3736" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3751" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3766" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3781" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3796" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3811" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3826" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3841" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3856" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3871" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3886" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3901" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3916" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3931" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3946" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3961" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3976" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="3991" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4006" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4021" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4036" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4051" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4066" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4081" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4096" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4111" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4126" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4141" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4156" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4171" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4186" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4201" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4216" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4231" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4246" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4261" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4276" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4291" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4306" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4321" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4336" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4351" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4366" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4381" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4396" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4411" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4426" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4441" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4456" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4471" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4486" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4501" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4516" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4531" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4546" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4561" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4576" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4591" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4606" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4621" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4636" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4651" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4666" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4681" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4696" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4711" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4726" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4741" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4756" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4771" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4786" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4801" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4816" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4831" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4846" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4861" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4876" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4891" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4906" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4921" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4936" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4951" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4966" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4981" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="4996" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5011" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5026" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5041" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5056" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5071" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5086" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5101" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5116" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5131" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5146" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5161" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5176" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5191" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5206" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5221" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5236" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5251" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5266" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5281" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5296" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5311" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5326" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5341" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5356" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5371" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5386" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5401" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5416" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5431" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5446" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5461" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5476" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5491" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5506" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5521" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5536" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5551" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5566" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5581" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5596" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5611" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5626" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5641" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5656" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5671" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5686" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5701" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5716" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5731" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5746" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5761" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5776" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5791" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5806" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5821" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5836" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5851" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5866" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5881" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5896" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5911" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5926" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5941" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5956" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5971" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="5986" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6001" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6016" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6031" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6046" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6061" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6076" font-size="12" fill="#111111" xml:space="preserve">&lt;TR ALIGN=&quot;LEFT&quot; VALIGN=&quot;MIDDLE&quot;&gt;</text>
+  <text x="16" y="6091" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=head&gt;&amp;nbsp;Pos&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6106" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=head&gt;&amp;nbsp;Profile&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6121" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=head&gt;&amp;nbsp;Material&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6136" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=head&gt;&amp;nbsp;Qty&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6151" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=head&gt;&amp;nbsp;Weight (kg)&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6166" font-size="12" fill="#111111" xml:space="preserve">&lt;/TR&gt;</text>
+  <text x="16" y="6181" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6196" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6211" font-size="12" fill="#111111" xml:space="preserve">&lt;TR ALIGN=&quot;LEFT&quot; VALIGN=&quot;MIDDLE&quot;&gt;</text>
+  <text x="16" y="6226" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=txt&gt;                                    B01             &amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6241" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=txt&gt;                                    D16             &amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6256" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=txt&gt;                                    B500B           &amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6271" font-size="12" fill="#111111" xml:space="preserve">&lt;TD&gt;                                              8       &amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6286" font-size="12" fill="#111111" xml:space="preserve">&lt;TD&gt;                                              9.8         &amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6301" font-size="12" fill="#111111" xml:space="preserve">&lt;/TR&gt;</text>
+  <text x="16" y="6316" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6331" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6346" font-size="12" fill="#111111" xml:space="preserve"></text>
+  <text x="16" y="6361" font-size="12" fill="#111111" xml:space="preserve">&lt;TR ALIGN=&quot;LEFT&quot; VALIGN=&quot;MIDDLE&quot;&gt;</text>
+  <text x="16" y="6376" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=count&gt;&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6391" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=count&gt;&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6406" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=count&gt;&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6421" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=count&gt;&amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6436" font-size="12" fill="#111111" xml:space="preserve">&lt;TD class=count&gt;                                  12          &amp;nbsp;&lt;/TD&gt;</text>
+  <text x="16" y="6451" font-size="12" fill="#111111" xml:space="preserve">&lt;/TR&gt;</text>
+  <text x="16" y="6466" font-size="12" fill="#111111" xml:space="preserve">&lt;/TABLE&gt;</text>
+  <text x="16" y="6481" font-size="12" fill="#111111" xml:space="preserve">&lt;/BODY&gt;</text>
+  <text x="16" y="6496" font-size="12" fill="#111111" xml:space="preserve">&lt;/HTML&gt;</text>
+  <text x="16" y="6523" font-size="11" font-weight="bold" fill="#d00000" font-family="Segoe UI, Arial, sans-serif">5 layout warning(s):</text>
+  <text x="16" y="6538" font-size="10" fill="#b00000" font-family="Segoe UI, Arial, sans-serif">! Field 'POS' at x=50 does not line up under any header column (data may print off-heading).</text>
+  <text x="16" y="6552" font-size="10" fill="#b00000" font-family="Segoe UI, Arial, sans-serif">! Field 'PROFILE' at x=50 does not line up under any header column (data may print off-heading).</text>
+  <text x="16" y="6566" font-size="10" fill="#b00000" font-family="Segoe UI, Arial, sans-serif">! Field 'MATERIAL' at x=50 does not line up under any header column (data may print off-heading).</text>
+  <text x="16" y="6580" font-size="10" fill="#b00000" font-family="Segoe UI, Arial, sans-serif">! Field 'QTY' at x=50 does not line up under any header column (data may print off-heading).</text>
+  <text x="16" y="6594" font-size="10" fill="#b00000" font-family="Segoe UI, Arial, sans-serif">! Field 'WEIGHT__KG' at x=50 does not line up under any header column (data may print off-heading).</text>
+</svg>

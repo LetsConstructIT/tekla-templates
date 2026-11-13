@@ -33,7 +33,7 @@
     Require these named tricks. Run with no args to see the list under "Features". e.g.
     nested-rows, combine, oncombine-sum, footer-sum, hidden-rows, current-drawing,
     imperial-branch, control-flow, summary-band, single-rebar, revision-table,
-    drawing-table, csv-export. Repeatable.
+    drawing-table, csv-export, xls-html. Repeatable.
 
 .PARAMETER Kind
     Restrict to 'rpt' (reports) or 'tpl' (drawing tables).

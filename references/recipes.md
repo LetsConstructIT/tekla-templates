@@ -149,10 +149,142 @@ Don't duplicate a template to vary frame lines or notes — put a `visibilityrul
 expression language as row rules) on the individual `lineorarc`/`rectangle`/`polyline`/
 `circle`. Empty = always shown. See [file-format.md](file-format.md#visibilityrule--color_argb--isalwaysvisible).
 
-## CSV / Excel export
+## CSV export (plain delimited)
 
 There is no CSV output mode — you fake it: a literal `"sep=;"` `text` line first (so Excel
 picks the separator), literal `;` `text` objects between LEFT-justified `DISTINCT` fields,
 and a `*.csv.rpt` filename (Tekla writes the part before the last dot as the output
 extension). The shipped corpus has no example of this — `assets/skeleton_csv_export.rpt`
-is the reference.
+is the reference. Use it only when the consumer wants raw data; for anything a human opens
+in Excel, the HTML idiom below gives real formatting.
+
+## Formatted Excel report — HTML inside a `.xls` file
+
+**This is the shipped way to produce an Excel report**, and it beats CSV whenever the output
+is read rather than re-imported: fonts, borders, named cell styles, column widths, page
+margins, print headers and number formats all survive. **96 shipped 2026.0 templates** are
+built this way — 80 `.xls.rpt`, 15 `.html.rpt` and one `.doc.rpt`, all the same idiom with a
+different target application: `Find-TeklaTemplateExamples.ps1 -Feature xls-html`. (The 6
+shipped `.xlsx.rpt` files are *not* this pattern — they are plain fixed-width text reports
+that happen to carry an Excel extension. Don't copy those expecting formatting.)
+
+The template itself is an ordinary `type = TEXTUAL` report — nothing in the grammar marks it.
+The whole trick is that the `text` blocks contain **HTML markup and Excel's `mso-` CSS**
+instead of labels, so the report Tekla writes *is* an HTML document. Name the file
+`*.xls.rpt` and Tekla writes the output as `.xls`, which Excel opens as a formatted
+worksheet. (It is HTML wearing an `.xls` extension, not OOXML, so Excel shows a
+"file format does not match extension" prompt on open — expected, and every shipped template
+has it. Suppress it per-machine with the Excel *ExtensionHardening* registry setting, or ship
+`.html.rpt` if the consumer doesn't mind the extension.)
+
+### Generate it — don't hand-place the blocks
+
+A five-column report is ~90 blocks whose y coordinates must line up and whose tags must
+pair. Author it declaratively instead:
+
+```powershell
+scripts\New-TeklaXlsReport.ps1 -Out part_list.xls.rpt -Title "Part list" -Column `
+    @{ Header='Pos';         Formula='GetValue("PART_POS")' },
+    @{ Header='Profile';     Formula='GetValue("PROFILE")' },
+    @{ Header='Qty';         Formula='GetValue("NUMBER")'; Type='Integer'; Combine='SUM' },
+    @{ Header='Weight (kg)'; Formula='GetValue("WEIGHT")'; Type='Number'; Class='Weight'; Combine='SUM'; Total=$true }
+```
+
+It emits through the JSON IR pipeline (so the TplEd crash traps stay unreachable) and
+applies every hardening below by construction: complete cell triples, self-balanced bands,
+the Text number format, `replace()` escaping, a large `maxheight`, and a `width` computed
+from the real emitted lines. `-ContentType`, `-Sort`, `-Rule`, `-Landscape`,
+`-NoProjectBlock` cover the usual variations; `-JsonOut` gives you the IR to hand-edit.
+
+Then lint the **document**, which `-Strict` cannot see:
+
+```powershell
+scripts\Test-TeklaHtmlReport.ps1 -Path part_list.xls.rpt
+```
+
+It composes the emitted HTML exactly as Tekla will (per band, descending y, left-to-right by
+x) and checks tag balance, per-band self-containment, cell counts against the heading, the
+Text format, escaping, and `maxheight`. Exit 2 on errors, `-Strict` to fail on warnings too.
+
+**One output line = one table cell.** Within a band, lines emit in **descending y** (y is a
+line index from the band's bottom, so the highest y prints first — see
+[file-format.md](file-format.md#coordinates-and-units)). A cell is three objects on the same y,
+left to right by x:
+
+```
+text       x1 = 0    string = "<TD>"
+valuefield location = (50, y)   formula = "GetValue(\"WEIGHT\")"   length = 10
+text       x1 = 60   string = "&nbsp;</TD>"
+```
+
+Objects are laid out **at their x**, and the gaps between them become spaces. A tag split
+across two text objects therefore gets a space in the middle — write each complete tag as one
+`text` object. The field's `length` pads the value; HTML collapses that whitespace, so the
+padding is free and you never fight column widths the way a fixed-pitch report makes you.
+No shipped template ever concatenates markup into a `formula` — keep the tags in `text`
+blocks so the field stays a plain `GetValue`.
+
+**Band layout** — the document is split across the bands in reading order:
+
+| Band | Emits |
+|---|---|
+| `header` | `<!DOCTYPE>`, `<HTML>`, `<HEAD>`, the `<style>` block, `</HEAD>`, `<BODY>`, any project/date table, and the data `<TABLE …>` opening tag |
+| `pageheader` | the column-title `<TR>` of `<TD class=head>` cells |
+| `row` | one `<TR>` per object, one `<TD>` per column |
+| `footer` | the totals `<TR>`, then `</TABLE>`, `</BODY>`, `</HTML>` |
+
+**The rule that makes the archetype safe: every repeating band must close what it opens.**
+A `row` emits `<TR>` … `</TR>` and nothing wider; only `header` and `footer` — emitted once —
+may leave the `<TABLE>`/`<BODY>`/`<HTML>` tags open across bands. Break that and the file is
+fine on your desk and corrupt in production, because the damage only appears when a `rule`
+filters the row out, when a section is empty, or when the report paginates. Shipped
+multi-section reports (`Q_Check_Part_Names(HTML).html.rpt` and friends, 14 sibling row bands
+where one opens the `<TABLE>` and another closes it) violate this and are exactly as fragile
+as that implies. `Test-TeklaHtmlReport.ps1` checks it.
+
+**Set `maxheight` very large** (shipped files use `100000`). Pagination inserts page breaks
+mid-document and splits the HTML — Excel then sees a truncated table. Page breaks belong in
+the CSS `@page` rule, not in Tekla's pagination.
+
+**The `mso-` CSS is where the Excel-specific power is.** Inside `<style type="text/css">`,
+wrapped in an HTML comment (`<!--` … `-->`):
+
+- `@page { margin: …; mso-header-data: "&C&…&A"; mso-footer-data: "…Page &P"; mso-paper-source:A4; }`
+  — print margins and the running header/footer, using Excel's `&`-codes.
+- **`mso-number-format:"\@"` is what keeps a text column text.** `@` is Excel's Text format
+  code. Without it Excel coerces on open: the piece mark `B/1-2` becomes a date, `007` loses
+  its zeros, `1-2` becomes January 2nd. Apply it to **every** text column.
+  **`mso-number-format:general` does not do this** — `general` *is* the coercing default.
+  Of the 110 shipped HTML reports, 29 set `general`, two set it outside a `style=` attribute
+  where it does nothing, and **none** use the Text format, so the shipped corpus is the wrong
+  thing to copy here.
+- Named classes (`.head`, `.count`, `.txt`) with `mso-style-parent:style0` give a bold heading
+  row, bordered totals, a text-formatted body cell — referenced as `<TD class=head>`.
+- `<TD colspan=3 style='border:none;mso-ignore:colspan'></TD>` indents a row without
+  creating real merged cells.
+
+**Escape model text going into the document.** Nothing escapes automatically, and a project
+named "Smith & Sons" or a UDA containing `<` lands in the HTML raw. Wrap string columns —
+`&` first, or it re-escapes its own output:
+
+```
+replace(replace(GetValue("PROFILE"), "&", "&amp;"), "<", "&lt;")
+```
+
+No shipped template does this (0 of 2,685 use `replace()` at all), so it is documented
+behaviour rather than corpus-proven — **verify one report in a live Tekla session** before
+rolling it out. The same caveat applies to the Text format above; `New-TeklaXlsReport.ps1`
+emits both and `-NoEscape` / `-NoTextFormat` fall back to shipped practice.
+
+Start from `assets/skeleton_xls_report.xls.rpt` (generated by the script above: project/date
+block, styled heading row, `COMBINE` data row, `Total()` footer). Richer shipped references:
+`Material_Excel_part_list.xls.rpt` (UK — logo `<IMG>`, `@page` header/footer, three style
+classes), `TS-Material_list(EXCEL).xls.rpt` (default env), and the `310 …` / `350 …` takeoff
+reports in `USA/Common/CastInPlace/Reports`.
+
+**Previewing this archetype is different.** `Test-TeklaHtmlReport.ps1` is the real check;
+`Render-TeklaTemplate.ps1 -AsText -RawValues` is the useful eyeball view, composing the lines
+in output order so you can read the HTML you are about to emit. The SVG preview and the
+renderer's *"does not line up under any header column"* warnings are meaningless here (the
+columns are HTML cells, not character positions); the skeleton ships with five of them.
+Final signoff is still opening the output in Excel.

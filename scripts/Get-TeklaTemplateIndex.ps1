@@ -32,6 +32,7 @@
         revision-table   a row of contenttype REVISION
         drawing-table    a GRAPHICAL template with a DRAWING row (title block / table)
         csv-export       a text block prints a literal "sep=" line (delimited export)
+        xls-html         text blocks emit HTML tags / mso- CSS (Excel or HTML report)
         picture          a picture block (logo / graphic)
 
     The output feeds Find-TeklaTemplateExamples.ps1. This is the CORPUS INDEX (which file
@@ -185,6 +186,12 @@ function Get-TemplateRecord {
         # CSV convention is a text block printing a literal "sep=;" line (see
         # assets/skeleton_csv_export.rpt) — there is no sep property in the grammar.
         if ($b.Keyword -eq 'text' -and (Get-Str $b 'string' '') -match '^sep=') { [void]$features.Add('csv-export') }
+        # Excel/HTML reports (*.xls.rpt, *.html.rpt) are ordinary TEXTUAL templates whose
+        # text blocks emit HTML tags + Excel mso- CSS, one table cell per output line (see
+        # assets/skeleton_xls_report.xls.rpt). Nothing in the grammar marks them.
+        if ($b.Keyword -eq 'text' -and (Get-Str $b 'string' '') -match '(?i)<\s*/?\s*(html|head|body|table|tr|td|th|style|meta|br)\b') {
+            [void]$features.Add('xls-html')
+        }
 
         # scan formula-language strings for functions, attributes and inline tricks
         foreach ($key in 'formula', 'rule', 'content') {

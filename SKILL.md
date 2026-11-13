@@ -7,7 +7,8 @@ description: >-
   lists). Use for Template Editor / tpled, value fields, content attributes
   (PART.PROFILE, ASSEMBLY.WEIGHT, GetValue formulas), row rules/filters,
   COMBINE/DISTINCT sorting, creating a report from a description, adding or
-  fixing a column, or diagnosing a blank/truncated/garbled field. Trigger even
+  fixing a column, Excel/CSV report output, or diagnosing a blank/truncated/
+  garbled field. Trigger even
   when the user just says "report", "list", "table", "title block", or
   "template" in a Tekla context. Covers editing template TEXT; for C#/Open API
   automation of the model or drawings use the tekla-open-api skill.
@@ -180,7 +181,8 @@ preview for both kinds (`-AsText` is an optional extra character-grid view for `
 | Assembly + its parts | `skeleton_assembly_list.rpt` | nested `ASSEMBLY`>`PART`; hidden `MAIN_PART` sort key; per-assembly `oncombine=SUM`; hidden `WEIGHT_sum`→footer `Total()` |
 | Bolt list | `skeleton_bolt_list.rpt` | hidden `ASSEMBLY`>`PART` wrapper rows for scope; hidden `DIAMETER`/`LENGTH` sort keys behind one built `"BOLT dXl"` field; `COMBINE`+`SUM` |
 | Material / weight summary | `skeleton_material_summary.rpt` | `PART` `COMBINE` keyed on profile+grade; `oncombine=SUM` rolls up count & weight; footer `Total()` |
-| CSV / Excel export | `skeleton_csv_export.rpt` | `sep=;` line + literal `;` `text` between LEFT-justified fields; name the file `*.csv.rpt` |
+| CSV export (raw data) | `skeleton_csv_export.rpt` | `sep=;` line + literal `;` `text` between LEFT-justified fields; name the file `*.csv.rpt` |
+| Formatted Excel report | `skeleton_xls_report.xls.rpt` | `text` blocks emit HTML + Excel `mso-` CSS, one `<TD>` per output line; huge `maxheight`; name the file `*.xls.rpt`. **Generate it with `New-TeklaXlsReport.ps1`, don't hand-place the blocks** |
 | Title block | `skeleton_title_block.tpl` | one `row (contenttype=DRAWING)`, absolute mm, frame + `PROJECT.*`/`REVISION.LAST_*` fields |
 | Revision table | `skeleton_revision_table.tpl` | hidden `DRAWING` wrapper row + nested `REVISION` row (one band/revision) |
 | Drawing-embedded BOM | `skeleton_drawing_bom.tpl` | `CURRENT_DRAWING.` filter on every row; sibling sections (`PART`, `REBAR`) each heading/detail/summary; imperial branch on `XS_IMPERIAL`; footer sums each section's `Sum()` |
@@ -212,7 +214,8 @@ scripts\Find-TeklaTemplateExamples.ps1                                       # n
 It queries `assets/template-index.json` (pre-built from **2026.0**: per file its content types,
 formula functions, `GetValue` attributes, block types and named tricks — `nested-rows`,
 `combine`, `oncombine-sum`, `footer-sum`, `hidden-rows`, `current-drawing`, `imperial-branch`,
-`control-flow`, `summary-band`, `single-rebar`, `revision-table`, `drawing-table`, `csv-export`).
+`control-flow`, `summary-band`, `single-rebar`, `revision-table`, `drawing-table`, `csv-export`,
+`xls-html`).
 Axes AND together; matches rank simplest-first (`-Largest` reverses). `-Show`/`-Path` resolve the
 file's real location so you can open and copy it. Regenerate for another version (~65 s,
 once per version) with `scripts\Get-TeklaTemplateIndex.ps1 -TeklaRoot C:\TeklaStructures\<version>`;
@@ -246,6 +249,28 @@ tree-identical (`tests\Test-TeklaTemplateRoundTrip.ps1` — also the regression 
 after touching parser/census/schema). It does **not** check attribute names or formula
 syntax — the extractor and preview still own those. Full IR spec, value forms, and the
 `{"ident"/"string": …}` escape hatch: **`references/json-ir.md`**.
+
+## Excel reports are a separate pipeline
+
+A *formatted* Excel report is a normal `TEXTUAL` template whose `text` blocks emit HTML +
+Excel `mso-` CSS, named `*.xls.rpt` (96 shipped templates; `-Feature xls-html`). Don't
+hand-author one and don't trust `-Strict` on it — the grammar check validates the *template*
+and is blind to the *document* it produces:
+
+```powershell
+scripts\New-TeklaXlsReport.ps1 -Out part_list.xls.rpt -Title "Part list" -Column `
+    @{ Header='Pos'; Formula='GetValue("PART_POS")' },
+    @{ Header='Weight (kg)'; Formula='GetValue("WEIGHT")'; Type='Number'; Combine='SUM'; Total=$true }
+scripts\Test-TeklaHtmlReport.ps1 -Path part_list.xls.rpt      # lints the emitted HTML; exit 2 on errors
+```
+
+The generator handles what silently corrupts these reports: complete cell triples, bands that
+close what they open, Excel's Text format on text columns (`general` is the coercing
+*default*, not a fix), `replace()` HTML-escaping of model text, and a large `maxheight`.
+Two of those — `replace()` and the Text format — are documented but used by **no** shipped
+template, so **verify one report in a live Tekla session** before rolling it out; `-NoEscape`
+/ `-NoTextFormat` revert to shipped practice. Full treatment:
+[recipes.md](references/recipes.md) → "Formatted Excel report".
 
 ## Workflows
 
@@ -298,7 +323,8 @@ syntax — the extractor and preview still own those. Full IR spec, value forms,
   editing templates via JSON.
 - `references/recipes.md` — **goal → pattern index**: page numbering (`PAGE`/`PAGES`),
   metric/imperial branch, running counters, hidden sort keys, subtotals & grand totals,
-  duplicate suppression, multilingual fields, compute-once-reuse. Start here when the user
+  duplicate suppression, multilingual fields, compute-once-reuse, CSV and formatted-Excel
+  (HTML-in-`.xls`) output. Start here when the user
   names an outcome rather than a language feature; each entry links the full treatment.
 - `references/attribute-cookbook.md` — plain-English → attribute ("piece mark" → `ASSEMBLY_POS`),
   per-content-type most-used lists, and the attribute traps. Read when choosing attributes.
