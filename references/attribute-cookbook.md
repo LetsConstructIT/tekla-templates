@@ -15,6 +15,10 @@ Attribute *availability* varies by version and environment — this file orients
 scripts\Get-TeklaAttributes.ps1 -ContentType PART -Name '^WEIGHT'
 ```
 
+**For what an attribute *means*, grep `references/attribute-definitions.md`** when it exists.
+It's generated locally from Trimble's "Template attributes" PDF (see SKILL.md, Step 1) and is
+the authority on meaning; this cookbook is about choosing names and avoiding traps.
+
 Descriptions and gotchas below are hand-written, and have to be. Tekla's own `.ail` description
 file can't source them: of its 901 entries, **633 just restate the attribute name** — and that's
 precisely where the common ones land (`WEIGHT` → "Weight", `PROFILE` → "Profile", `MATERIAL` →
@@ -58,6 +62,11 @@ attribute, or any of the traps in §2 — which is the part that actually costs 
 | project number | `PROJECT.NUMBER` | any | **CHARACTER, not INTEGER** — see §2 |
 | drawn by / checked by | `USERDEFINED.DR_DRAWN_BY` / `USERDEFINED.DR_CHECKED_BY` | DRAWING | UDA — needs `-IncludeUserDefined` to verify, see §3 |
 | any UDA / custom property | `USERDEFINED.<name>` | varies | Defined in `objects.inp`, not the global catalog — see §3 |
+| weld seam length (start → end) | `WELD_ACTUAL_LENGTH1` / `…2` | WELD | FLOAT mm, above / below line. **Includes the gaps** of an intermittent weld — see §2 |
+| intermittent segment length | `WELD_LENGTH1` / `…2` | WELD | The *Length* box in weld properties, not the seam length |
+| intermittent pitch | `WELD_PERIOD1` / `…2` | WELD | The *Pitch* box. FLOAT, no unit class in the catalog |
+| continuous vs intermittent | `WELD_INTERMITTENT_TYPE` | WELD | CHARACTER: Continuous / Chain / Staggered intermittent |
+| weld volume (→ weld metal weight) | `WELD_VOLUME` | WELD | mm³ of the solid weld; **0 for unsupported weld types or a failed solid** |
 | project name / client / designer | `PROJECT.NAME` / `PROJECT.BUILDER` / `PROJECT.DESIGNER` | any | |
 | drawing title | `TITLE` (DRAWING) or `TITLE1`..`TITLE3` | DRAWING | `TITLE1-3` are the free title lines on most objects |
 | drawing date / date created | `DATE_CREATE`, `DATE_ISSUE` | DRAWING | INTEGER + `class = "Date"` — see §2 |
@@ -120,6 +129,18 @@ and let the class format them. There is no `DATE` datatype — `class` drives th
 
 **`ID` is not stable, `GUID` is.** `ID` (the running number) changes; use `GUID` to key anything
 that must survive a re-open or round-trip.
+
+**No attribute gives the deposited length of an intermittent weld.** `WELD_ACTUAL_LENGTH1/2`
+is the seam length from start point to end point, gaps included (Trimble's definition, §21.21
+of the 2025/2026 PDFs). Tekla's own weld inquiry report labels it "Actual length", which is
+what misled a user's report into totalling 500 mm for a 500 mm, 100-on/100-off weld that has
+300 mm of metal. Derive it from the seam length, the segment length (`WELD_LENGTH1`) and the
+pitch (`WELD_PERIOD1`). How many segments fit depends on two things the documentation doesn't
+settle: whether *Pitch* is centre-to-centre or the gap, and how Tekla places the end segments.
+One user's field-checked formula, with segment length `s` and gap `g`, was
+`(ceil((L − s) / (g + s)) + 1) × s`. Confirm it against one weld in the actual model (Inquire)
+before the report goes to the workshop, and do the same for the below-line side and for
+staggered welds.
 
 **`LOT_NUMBER` is assembly-level.** ASSEMBLY and CAST_UNIT only — a `PART` row can't read it
 directly; go through the assembly.

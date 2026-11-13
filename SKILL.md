@@ -53,6 +53,13 @@ folds in a firm library or substitutes for a missing install. Tell the user whic
 version it built against. If it reports assets built from a **different** version than the
 one installed, say so and offer `-Force` — it won't refresh them on its own.
 
+**Optional fourth asset — attribute meanings.** `references\attribute-definitions.md` is
+built from Trimble's per-version *"Template attributes in drawing and report templates"* PDF
+(`TS_TEA_<year>_<lang>_Template_attributes.pdf`, downloadable from Tekla User Assistance).
+Setup picks it up from the skill folder or `~\Downloads`, or pass `-AttributePdf <pdf>`. It is
+Trimble's text, so it's gitignored and never shipped. If it's missing, tell the user once that
+attribute meanings will be marked unverified until they supply the PDF.
+
 Setup is not a precondition for working: authoring, preview, and install all work without
 these files. Only `-Strict` grammar validation, the JSON-IR schema gate, and shipped-corpus
 search degrade — so when setup can't complete (no Tekla on this PC), carry on and say which
@@ -77,6 +84,17 @@ runtime and are absent from the global catalog, so a default run wrongly denies 
 **`-IncludeUserDefined`**, and may still be missing if the UDA is defined in a project's
 `objects.inp`; `ADVANCED_OPTION.XS_*` (353 templates, e.g. the standard `XS_IMPERIAL`
 branch) is in **no** catalog at all. Don't delete either on the extractor's say-so.
+
+**A valid name is not a known meaning.** The extractor proves an attribute *exists* (name,
+datatype, unit, bindings) — it says nothing about what the value represents, and neither do
+names, Inquire/report labels, or shipped usage. `WELD_ACTUAL_LENGTH1` sits under the label
+"Actual length" in Tekla's own weld inquiry report, yet it's the full seam length *including*
+the gaps of an intermittent weld. Before stating what an attribute means, or picking one on
+the strength of its meaning, grep `references\attribute-definitions.md` for the bare name
+(no `ASSEMBLY.`/`MAINPART.` prefix) and cite the § it came from. If the file is absent or the
+attribute isn't in it, say the meaning is **unverified — inferred from the name/label** and
+suggest checking one known object with Inquire in the model before the report is trusted.
+Never present an inferred meaning as fact.
 
 The extractor verifies a name but won't help you *choose* one. For "the user said **piece
 mark** / **grade** / **lot** — what do I type?", the traps that silently produce a wrong
@@ -328,6 +346,9 @@ template, so **verify one report in a live Tekla session** before rolling it out
   names an outcome rather than a language feature; each entry links the full treatment.
 - `references/attribute-cookbook.md` — plain-English → attribute ("piece mark" → `ASSEMBLY_POS`),
   per-content-type most-used lists, and the attribute traps. Read when choosing attributes.
+- `references/attribute-definitions.md` — *generated locally, may be absent*: Trimble's
+  definition of each documented attribute, one line each (~35k tokens). **Grep it, never read
+  it whole.** The authority for what an attribute means.
 - `references/file-format.md` — full block grammar, fields, coordinates, encoding.
 - `references/formulas.md` — formula language: bare vs prefixed attributes, operators,
   `if…then…else…endif`, `StepOver()`, quote escaping.

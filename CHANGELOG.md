@@ -16,11 +16,23 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - `assets/skeleton_xls_report.xls.rpt` skeleton with preview SVG.
 - `xls-html` feature tag in `Get-TeklaTemplateIndex.ps1` / `Find-TeklaTemplateExamples.ps1`.
 - "Formatted Excel report" section in `references/recipes.md`.
+- Attribute definitions (meanings, not just names), built locally from the user's own copy of
+  Trimble's "Template attributes" PDF; Trimble's text, so gitignored and never shipped:
+  - `scripts/Get-TeklaAttributeDefinitions.ps1` writes `references/attribute-definitions.md`,
+    one grep-able line per attribute with § and page, checked against the PDF's TOC
+    (2025: 475 sections, 2026: 480). Uses the `pdftotext` bundled with Git for Windows.
+  - `Initialize-TeklaTemplates.ps1 -AttributePdf`, plus auto-pickup of `TS_TEA_*` PDFs from
+    the skill folder / Downloads, preferring the installed Tekla year; optional, never
+    affects readiness.
+- Weld rows and the intermittent-weld trap in `references/attribute-cookbook.md`.
 
 ### Changed
 - `SKILL.md`: description mentions Excel/CSV output; skeleton table separates CSV export
   from formatted Excel reports; new "Excel reports are a separate pipeline" section.
 - `assets/template-schema.json` regenerated from the latest grammar harvest.
+- `SKILL.md`: "a valid name is not a known meaning" rule. Claude looks a meaning up in the
+  definitions file and cites it, or labels it unverified. Previously it presented label-based
+  guesses as fact (`WELD_ACTUAL_LENGTH1` read as "welded length without gaps").
 
 ## 2026-08-11
 ### Changed

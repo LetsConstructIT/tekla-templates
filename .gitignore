@@ -12,3 +12,7 @@ assets/template-index.json
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Built locally from the user's own copy of Trimble's "Template attributes" PDF — Trimble's
+# copyrighted text, NOT redistributed. scripts/Get-TeklaAttributeDefinitions.ps1 -Pdf <pdf>
+references/attribute-definitions.md

@@ -88,6 +88,27 @@ The grammar and index each sweep the whole shipped corpus (2,688 files / 128 MB)
 ~65 s, once per Tekla version. Until they exist the dependent features degrade gracefully —
 each script tells you which one to run — and everything else works normally.
 
+### Optional (recommended): attribute definitions
+
+The steps above teach Claude which attribute **names** are valid, but not what they **mean**.
+Without definitions, Claude infers meanings from names and labels, and those can mislead.
+For example, `WELD_ACTUAL_LENGTH1` includes the gaps of an intermittent weld. To give Claude
+Trimble's definitions:
+
+1. Download the *"Template attributes in drawing and report templates"* PDF for your Tekla
+   version and language from Tekla User Assistance, e.g. `TS_TEA_2026_en_Template_attributes.pdf`.
+2. Put it in your Downloads folder or the skill folder and re-run setup, or pass it explicitly:
+
+```powershell
+scripts\Initialize-TeklaTemplates.ps1 -AttributePdf "$HOME\Downloads\TS_TEA_2026_en_Template_attributes.pdf"
+```
+
+This writes `references/attribute-definitions.md` (~1 s). It has one line per attribute and is
+checked against the PDF's table of contents. Claude searches it before saying what an
+attribute means, and flags meanings as unverified when it's missing. Text extraction uses
+`pdftotext`, which ships with Git for Windows. The file is Trimble's text, so it is gitignored:
+build your own and don't redistribute it.
+
 ## Why those two files aren't in the repo
 
 `template-grammar.json` and `template-index.json` are harvested by scanning Trimble/Tekla's
