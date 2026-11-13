@@ -5,6 +5,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## 2026-11-13
+
 ### Added
 - Formatted Excel report pipeline (HTML + Excel `mso-` CSS inside `*.xls.rpt`):
   - `scripts/New-TeklaXlsReport.ps1` generates a complete template from a column spec,
@@ -34,11 +36,14 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `SKILL.md`: description mentions Excel/CSV output; skeleton table separates CSV export
   from formatted Excel reports; new "Excel reports are a separate pipeline" section.
 - `assets/template-schema.json` regenerated from the latest grammar harvest.
-- `SKILL.md`: "a valid name is not a known meaning" rule. Claude looks a meaning up in the
-  definitions file and cites it, or labels it unverified. Previously it presented label-based
-  guesses as fact (`WELD_ACTUAL_LENGTH1` read as "welded length without gaps").
+- `SKILL.md`: new rule, "a valid name is not a known meaning". Claude looks a meaning up in the
+  glossary, then in the local Trimble definitions, and cites what it finds or labels the
+  meaning unverified. Before, it presented guesses based on labels as fact: a user's weld
+  report read `WELD_ACTUAL_LENGTH1` as welded length without gaps, but the value includes
+  them.
 - Cookbook: the bare-`WEIGHT` trap now states the documented rule (gross for catalog
   cross-sections, net for parametric profiles); new `VOLUME`-is-mm³-in-arithmetic trap.
+- README: optional "attribute definitions" setup step.
 
 ## 2026-08-11
 ### Changed
